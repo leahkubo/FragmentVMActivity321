@@ -36,7 +36,8 @@ class DiceFragment : Fragment() {
             findViewById<Button>(R.id.rollButton).setOnClickListener {
 
                 // Generate random number
-                (Random.nextInt(sides!!) + 1).toString()
+                viewModel = ViewModelProvider(requireActivity())[DiceViewModel::class.java]
+                viewModel.changeSide((Random.nextInt(sides!!) + 1))
             }
         }
     }
